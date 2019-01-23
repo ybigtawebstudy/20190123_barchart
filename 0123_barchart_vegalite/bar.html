@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vega-Lite Bar Chart</title>
+    <meta charset="utf-8" />
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@3.0.0-rc12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+    <style media="screen">
+      /* Add space between Vega-Embed links  */
+      .vega-actions a {
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>웹시각화스터디0123</h1>
+    <div id="vis"></div>
+
+    <script>
+
+      var bar = {
+        $schema: 'https://vega.github.io/schema/vega-lite/v3.json',
+        title : {text : 'bar chart', fontSize : 25},
+        data: {url:'data/bar.json'},
+        width : 500,
+        height : 400,
+        mark: 'bar',
+        encoding: {
+          x: {field: 'name', type: 'nominal', axis : {labelAngle : 0}},
+          y: {field: 'height',type: 'quantitative', axis : 'height'}
+        }
+      };
+
+      vegaEmbed('#vis', bar);
+
+    </script>
+  </body>
+</html>
+</html>
